@@ -61,6 +61,42 @@ public class App {
             case 24:
                 Example24();
                 break;
+            case 25:
+                Example25();
+                break;
+            case 26:
+                Example26();
+                break;
+            case 27:
+                Example27();
+                break;
+            case 28:
+                Example28();
+                break;
+            case 29:
+                Example29();
+                break;
+            case 30:
+                Example30();
+                break;
+            case 31:
+                Example31();
+                break;
+            case 32:
+                Example32();
+                break;
+            case 33:
+                Example33();
+                break;
+            case 34:
+                Example34();
+                break;
+            case 35:
+                Example35();
+                break;
+            case 36:
+                Example36();
+                break;
             default:
                 System.out.println("Example not implemented yet.");;
         }
