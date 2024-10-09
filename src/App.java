@@ -537,7 +537,7 @@ public class App {
     public static void Example25() {
         String ANSWER = "MORGAN";
         String PASSWORD = input.nextLine();
-        if (PASSWORD == ANSWER) {
+        if (PASSWORD.equals(ANSWER)) {
             System.out.println("CORRECT");
         } else {
             System.out.println("INCORRECT");
