@@ -597,7 +597,7 @@ public class App {
         int MAX = 10;                                // 10   null  null   -             
         int SUM = 0;                                 // 10   0     null   -             
         int COUNT = 0;                               // 10   0     0      -             
-        //                                                                                   | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT
+                                                     //                                      | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT      | MAX  SUM  COUNT  RES    OUTPUT
         for (COUNT = 0; COUNT <= MAX - 6; COUNT++) { // 10   0     0      True               | 10   0    1      True               | 10   0    2      True          | 10   0    3      True               | 10   0    4      True               | 10   0    5      False
             if (COUNT == 0 && MAX > 0) {             // 10   0     0      True               | 10   0    1      False              | 10   0    2      False         | 10   0    3      False              | 10   0    4      False              | skip
                 System.out.println("Hello");       // 10   0     0      -     "Hello"      | skip             -                  | skip                           | skip                                | skip                                | skip
