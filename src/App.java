@@ -130,6 +130,7 @@ public class App {
         int fwdPos = 0;
         int numMatches = 0;
         int length = input.nextInt();
+        input.nextLine(); // to clear newline
 
         int[] ARRAY = new int[length];
 
@@ -139,6 +140,7 @@ public class App {
             for (int i = 0; i < length; i++){
                 System.out.println("Enter the next element");
                 ARRAY[i] = input.nextInt();
+                input.nextLine(); // to clear newline
             }
             bkwPos = (length / 2) - 1;
             fwdPos = (length / 2) + 1;
@@ -616,8 +618,6 @@ public class App {
 
     public static void Example29() { 
         
-
-        
     }
 
 
@@ -638,33 +638,156 @@ public class App {
 
     public static void Example31() { 
       
-         String A1[] = {"aa", "11", "34", "ff", "mm"};
-         String A2[] = {"ff", "hh", "mn", "33", "34"};
+        String ARRAY1[] = {"aa", "11", "34", "ff", "mm"};
+        String ARRAY2[] = {"ff", "hh", "mn", "33", "34"};
    
-         System.out.println("The following items appear in both arrays");
+        System.out.println("The following items appear in both arrays");
 
-         //for ()
+        for (int A1 = 0; A1 < ARRAY1.length; A1++) {
+            for (int A2 = 0; A2 < ARRAY1.length; A2++) {
+                if (ARRAY1[A1] == ARRAY2[A2]) {
+                    //System.out.println(ARRAY2[A1]); // ERROR
+                    System.out.println(ARRAY2[A2]);
+                }
+            }
+        }
     }
 
 
     public static void Example32() {
+        int i = 0;
+        boolean ascending = true;
+        boolean descending = true;
+        int[] sample = new int[5];
+        for (i = 0; i < sample.length; i++) {
+            System.out.println("Enter the measurement");
+            sample[i] = input.nextInt();
+        }
+        input.nextLine(); // to clear newline
 
+        for (i = 0; i < sample.length - 1; i++) {
+            if (sample[i] > sample[i + 1]) {
+                ascending = false;
+            } else if (sample[i] < sample[i + 1]) {
+                descending = false;
+            }
+        }
+
+        System.out.println("The array is:");
+        for (i = 0; i < sample.length; i++) {
+            System.out.println(sample[i]);
+        }
+
+        if (ascending) {
+            System.out.println("The array is sorted in ASCENDING order.");
+        } else {
+            System.out.println("The array is not sorted in ASCENDING order.");
+        }
+        if (descending) {
+            System.out.println("The array is sorted in DESCENDING order.");
+        } else {
+            System.out.println("The array is not sorted in DESCENDING order.");
+        }
     }
 
     public static void Example33() {
+        int n;
+        int[] randomNums = new int[10];
 
+        for (n = 0; n < randomNums.length; n++) {
+            randomNums[n] = (int) (Math.random() * 10);
+        }
+
+        for (n = 0; n < randomNums.length; n++) {
+            System.out.println(randomNums[n]);
+        }
     }
-        
 
     public static void Example34() {
-
+        int n;
+        n = 0;
+        int m;
+        m = n + 3;
+        while (n <= 2) {
+            while (m < 10) {
+                m = 13 - 3;
+                System.out.println(n + 2);
+                System.out.println("m=" + m);
+            }
+            System.out.println("0K");
+            n++;
+        }
+        System.out.println("m=" + m + " n=" + n);
+        if (m > n) {
+            System.out.println("n=" + n);
+        } else {
+            System.out.println(m < n);
+        }
+        System.out.println(n);
     }
 
     public static void Example35() {
+        int[] array = {-30, -13, 4, -3, -30, -3, -3, -3, -15};
+        for (int i=0; i < array.length - 1; i++) {
+            for (int j=0; j < array.length - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
 
+            }
+        }
+
+        int prev = array[0];
+        int count = 1;
+
+        for (int i=1; i < array.length; i++) {
+            if (array[i] == prev) {
+                count++;
+                if (i == array.length - 1) {
+                    System.out.println("Number: " + array[i] + ", frequency: " + count);
+                }
+            } else {
+                System.out.println("Number: " + array[i - 1] + ", frequency: " + count);
+                prev = array[i];
+                count = 1;
+                if (i == array.length - 1) {
+                    System.out.println("Number: " + array[i] + ", frequency: " + count);
+                }
+            }
+        }
     }
 
     public static void Example36() {
 
+        int n = 5; //input
+        int sum = 0; //output
+
+        // algorithm A (executes in O(1))
+        {
+            sum = n * (n + 1) / 2;
+        }
+        System.out.println("The SUM is: " + sum);
+
+        // algorithm B (executes in O(N))
+        {
+            for (int i = 1; i <= n; i++) {
+                sum += i;
+            }
+        }
+        System.out.println("The SUM is: " + sum);
+
+        // algorithm C (executes in O(N^2))
+        {
+            for (int i = 1; i <= n; i++) {
+                for (int m = 1; m <= i; m++) {
+                    sum++;
+                }
+            }
+        }
+        System.out.println("The SUM is: " + sum);
     }
 }
+
+// 29
