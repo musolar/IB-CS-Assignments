@@ -616,7 +616,23 @@ public class App {
 
 
     public static void Example29() { 
-        
+        int MAX = 10;
+        int SUM = 0; 
+        int COUNT = 0;
+
+        for( COUNT = 0; COUNT <= MAX - 4; COUNT++) { 
+            if (COUNT == 0 && MAX > 0){
+                System.out.println("HELLO");
+            } else if (COUNT < 4) {
+                System.out.println("Go for it");
+            } else {
+                System.out.println("OK");
+            }
+        }
+            SUM += COUNT; 
+
+            System.out.println(" Total = " + SUM);
+            System.out.println(" MAX = " + COUNT);
     }
 
 
