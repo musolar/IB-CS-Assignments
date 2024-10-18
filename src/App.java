@@ -803,11 +803,18 @@ public class App {
         }
         System.out.println("The SUM is: " + sum);
     }
+
+
+    public static void Example40(){
+
+        int A = 0;
+        int B = 0;
+        int C = 0;
+        int D = 0;
+        int MAX = 0; 
+
+        System.out.println(" Enter four integers");
+
+    }
+
 }
-
-// 29
-
-
-// pretend this is code
-// pretend this is some more code
-// pretend this is even more code
