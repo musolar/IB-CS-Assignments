@@ -1210,7 +1210,5 @@ public class App {
     public static void Example63(){
 
     }
-
-    private int s = 0;
     
 }
