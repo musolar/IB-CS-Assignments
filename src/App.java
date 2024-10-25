@@ -1235,7 +1235,15 @@ public class App {
     }
 
     public static void Example52(){
-        
+        System.out.println("Enter the number to check");
+        int palindrome = input.nextInt();
+        input.nextLine();
+
+        if (findReverse(palindrome) == palindrome) {
+            System.out.println("" + palindrome + " is a palindrome.");
+        } else {
+            System.out.println("" + palindrome + " is not a palindrome.");
+        }
     }
 
     public static void Example53(){
