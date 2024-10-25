@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
@@ -95,6 +94,78 @@ public class App {
                 break;
             case 36:
                 Example36();
+                break;
+            case 40:
+                Example40();
+                break;
+            case 41:
+                Example41();
+                break;
+            case 42:
+                Example42();
+                break;
+            case 43:
+                Example43();
+                break;
+            case 44:
+                Example44();
+                break;
+            case 45:
+                Example45();
+                break;
+            case 46:
+                Example46();
+                break;
+            case 47:
+                Example47();
+                break;
+            case 48:
+                Example48();
+                break;
+            case 49:
+                Example49();
+                break;
+            case 50:
+                Example50();
+                break;
+            case 51:
+                Example51();
+                break;
+            case 52:
+                Example52();
+                break;
+            case 53:
+                Example53();
+                break;
+            case 54:
+                Example54();
+                break;
+            case 55:
+                Example55();
+                break;
+            case 56:
+                Example56();
+                break;
+            case 57:
+                Example57();
+                break;
+            case 58:
+                Example58();
+                break;
+            case 59:
+                Example59();
+                break;
+            case 60:
+                Example60();
+                break;
+            case 61:
+                Example61();
+                break;
+            case 62:
+                Example62();
+                break;
+            case 63:
+                Example63();
                 break;
             default:
                 System.out.println("Example not implemented yet.");;
@@ -220,11 +291,11 @@ public class App {
     }
 
     public static void Example14() {
-        vehicle Vehicle1 = new vehicle("red", "car", 2000);
-        vehicle Vehicle2 = new vehicle("green", "bus", 4000);
-        vehicle Vehicle3 = new vehicle("blue", "motorcycle", 800);
+        Vehicle Vehicle1 = new Vehicle("red", "car", 2000);
+        Vehicle Vehicle2 = new Vehicle("green", "bus", 4000);
+        Vehicle Vehicle3 = new Vehicle("blue", "motorcycle", 800);
 
-        vehicle[] Vehicles = {Vehicle1, Vehicle2, Vehicle3};
+        Vehicle[] Vehicles = {Vehicle1, Vehicle2, Vehicle3};
         for (int I = 0; I <= 2; I++) {
             if (Vehicles[I].Type == "bus") {
                 System.out.println("bus found at array position " + I);
@@ -811,6 +882,336 @@ public class App {
 
         System.out.println(" Enter four integers");
 
+        int A = input.nextInt();
+        int B = input.nextInt();
+        int C = input.nextInt();
+        int D = input.nextInt();
+        
+         MAX = A;
+        if ( B > MAX ){
+            MAX = B; 
+        } else if ( C > MAX ) { 
+            MAX = C; 
+        } else if ( D > MAX ) { 
+            MAX = D; 
+        }
+        
+  System.out.println("Maximum number is " + MAX);
+
+    }
+
+    public static void Example41(){
+     
+    {
+        System.out.println(" Enter two Postitive Integers  ");
+        
+        int A = input.nextInt();
+        int B = input.nextInt();
+
+         // Variables for quotient and remainder
+        int r = A;
+        int Q = 0;  
+
+        // Loop to find quotient and remainder 
+        while (r >= B) {
+            r = r - B;  // Subtract b from r
+            Q = Q + 1;  // Increment quotient
+        }
+
+        // Output the quotient and remainder
+        System.out.println("Quotient: " + Q + " Remainder: " + r);
+
+    }
+      {
+        System.out.println(" Enter two positive integers ");
+
+        int A = input.nextInt();
+        int B = input.nextInt();
+        
+        // Calculate quotient and remainder
+        int q = A / B;
+        int r = A % B;
+        
+        System.out.println("Quotient: " + q + " Remainder: " + r);
+       } 
+    }
+
+    public static void Example42(){
+        System.out.println("Enter command <encrypt|decrypt>");
+        String command = input.nextLine();
+        if (command.equals("encrypt")) {
+            
+            System.out.println("Enter a number to be encrypted (max 18 digits)");
+            long num = input.nextInt();
+            
+            long[] digits = new long[("" + num).length()];
+            
+            // extract digits
+            for (int i=0; i < digits.length; i++) {
+                digits[i] = (long) ((num % Math.pow(10, digits.length - i)) / Math.pow(10, digits.length - (i + 1)));
+            }
+
+            // change digits
+            for (int i=0; i < digits.length; i++) {
+                digits[i] = (digits[i] + 5) % 10;
+            }
+
+            // reverse digits
+            for (int i=0; i < (digits.length / 2); i++) {
+                long temp = digits[i];
+                digits[i] = digits[digits.length - i];
+                digits[digits.length - i] = temp;
+            }
+
+            // construct encrypted output
+            long encrypted = 0;
+            for (int i=0; i < digits.length; i++) {
+                encrypted += (digits[i] + Math.pow(10, digits.length - (i + 1)));
+            }
+
+            System.out.println("Encrypted number is:");
+            System.out.println(encrypted);
+
+        } else if (command.equals("decrypt")) {
+            
+            System.out.println("Enter a number to be encrypted (max 18 digits)");
+            long encrypted = input.nextInt();
+            
+            long[] digits = new long[("" + encrypted).length()];
+            
+            // extract digits
+            for (int i=0; i < digits.length; i++) {
+                digits[i] = (long) ((encrypted % Math.pow(10, digits.length - i)) / Math.pow(10, digits.length - (i + 1)));
+            }
+
+            // reverse digits
+            for (int i=0; i < (digits.length / 2); i++) {
+                long temp = digits[i];
+                digits[i] = digits[digits.length - i];
+                digits[digits.length - i] = temp;
+            }
+
+            /*
+             * x = 
+             * 
+             */
+        }
+    }
+
+    public static void Example43(){
+
+         final double Pi = 3.1415926535;
+
+        // Initialize variables
+        double ratio = 0, area;
+
+        // Loop to calculate the area of the circle
+        while (ratio != 999) {
+           
+            System.out.println("Enter the radius of the circle. Enter 999 to exit: ");
+            ratio = input.nextDouble();
+
+            // Exit condition
+            if (ratio == 999) {
+                System.out.println("See you!");
+                break;  // Exit the loop
+            } else {
+                // Calculate the area of the circle
+                area = Pi * ratio * ratio;
+
+                System.out.println("Area: " + area);
+            }
+        }
+    }
+
+    public static void Example44(){
+        
+
+    }
+
+    public static void Example45(){
+       //Declares the integer Year
+        int year = 0;
+        
+        // Loop to keep asking for the year until user enters -999
+        while (year != -999) {
+            // Prompt user to enter a year
+            System.out.println("Enter the year. Enter -999 to exit: ");
+            year = input.nextInt();
+            
+            // Exit condition
+            if (year == -999) {
+                System.out.println("See you!");
+                break;  // Exit the loop
+            } else {
+                // Check if the year is a leap year
+                boolean isLeap = false;
+                if ((year % 400 == 0) || (year % 100 != 0 && year % 4 == 0)) {
+                    isLeap = true;
+                }
+                
+                // Output whether it's a leap year or not
+                if (isLeap) {
+                    System.out.println("Year " + year + " is a leap year.");
+                } else {
+                    System.out.println("Year " + year + " is not a leap year.");
+                }
+            }
+        }
+        
+    }
+
+    public static void Example46(){
+           int row;
+
+        // Top part of the diamond
+        for (row = 1; row <= 5; row++) {
+            // Print leading spaces
+            for (int space = 1; space <= 5 - row; ++space) {
+                System.out.print(' ');
+            }
+
+            // Print # symbols
+            for (int symbol = 1; symbol <= 2 * row - 1; ++symbol) {
+                System.out.print('#');
+            }
+
+            // Move to the next line
+            System.out.print('\n');
+        }
+
+        // Bottom part of the diamond
+        for (row = 4; row >= 1; row--) {
+            // Print leading spaces
+            for (int space = 1; space <= 5 - row; space++) {
+                System.out.print(' ');
+            }
+
+            // Print # symbols
+            for (int symbol = 1; symbol <= 2 * row - 1; symbol++) {
+                System.out.print('#');
+            }
+
+            // Move to the next line
+            System.out.print('\n');
+        }
+    }
+
+    public static void Example47(){
+        
+    }
+
+    public static void Example48(){
+         // Create vehicles
+        Vehicle vehicle1 = new Vehicle("red", "car", 2000);
+        Vehicle vehicle2 = new Vehicle("green", "bus", 4000);
+        Vehicle vehicle3 = new Vehicle("blue", "motorcycle", 800);
+
+        // Create a collection of vehicles
+        List<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(vehicle1);
+        vehicles.add(vehicle2);
+        vehicles.add(vehicle3);
+
+        // Output the message
+        System.out.println("This Vehicle is a bus");
+
+        // Loop through the collection
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.Type.equals("bus")) {
+                System.out.println(vehicle);
+            }
+        }
+    }
+
+    public static void Example49(){
+          // Arrays for absences on Monday and Tuesday
+        String[] monday = {"Tom", "John", "Mary", "Bob"};
+        String[] tuesday = {"Bob", "Tom", "Eri"};
+
+        // Initialize the count
+        int x = 0;
+
+        // Create a collection for absences
+        Collection<String[]> absences = new ArrayList<>();
+        absences.add(monday);
+        absences.add(tuesday);
+
+        // Iterate over each array of absences
+        Iterator<String[]> iterator = absences.iterator();
+        while (iterator.hasNext()) {
+            String[] array1 = iterator.next();  // Get the next array of absences
+            // Loop through the names in the current array
+            for (int n = 0; n < array1.length; n++) {
+                if (array1[n].equals("Bob")) {
+                    x++;  // Increment count if "Bob" is found
+                }
+            }
+        }
+
+        // Output the result
+        System.out.println("Bob found " + x + " times");
+    }
+
+    
+
+    public static void Example50(){
+        
+    }
+
+    public static void Example51(){
+        
+    }
+
+    public static void Example52(){
+        
+    }
+
+    public static void Example53(){
+        
+    }
+
+    public static void Example54(){
+        
+    }
+
+    public static void Example55(){
+        
+    }
+
+    public static void Example56(){
+        
+    }
+
+    public static void Example57(){
+        
+    }
+
+    public static void Example58(){
+        
+    }
+
+    public static void Example59(){
+        
+    }
+
+    public static void Example60(){
+        
+    }
+
+    public static void Example61(){
+        
+    }
+
+    public static void Example62(){
+        
+    }
+
+    public static void Example63(){
+
+        
+        
+    }
 
 
     
