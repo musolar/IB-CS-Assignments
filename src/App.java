@@ -943,6 +943,7 @@ public class App {
             
             System.out.println("Enter a number to be encrypted (max 18 digits)");
             long num = input.nextInt();
+            input.nextLine();
             
             long[] digits = new long[("" + num).length()];
             
@@ -976,6 +977,7 @@ public class App {
             
             System.out.println("Enter a number to be encrypted (max 18 digits)");
             long encrypted = input.nextInt();
+            input.nextLine();
             
             long[] digits = new long[("" + encrypted).length()];
             
@@ -991,16 +993,25 @@ public class App {
                 digits[digits.length - i] = temp;
             }
 
-            /*
-             * x = 
-             * 
-             */
+            // change digits
+            for (int i=0; i < digits.length; i++) {
+                digits[i] = (digits[i] + 5) % 10;
+            }
+
+            // construct encrypted output
+             long decrypted = 0;
+             for (int i=0; i < digits.length; i++) {
+                decrypted += (digits[i] + Math.pow(10, digits.length - (i + 1)));
+             }
+ 
+             System.out.println("Decrypted number is:");
+             System.out.println(decrypted);
         }
     }
 
     public static void Example43(){
 
-         final double Pi = 3.1415926535;
+        final double Pi = 3.1415926535;
 
         // Initialize variables
         double ratio = 0, area;
@@ -1011,10 +1022,10 @@ public class App {
             System.out.println("Enter the radius of the circle. Enter 999 to exit: ");
             ratio = input.nextDouble();
 
-            // Exit condition
+       
             if (ratio == 999) {
                 System.out.println("See you!");
-                break;  // Exit the loop
+                break; 
             } else {
                 // Calculate the area of the circle
                 area = Pi * ratio * ratio;
@@ -1025,7 +1036,18 @@ public class App {
     }
 
     public static void Example44(){
-        
+        int n = 0;
+            while (n < 2) {
+                System.out.println("OK");
+                n++;
+                int m = n + 1;
+                System.out.println("INSIDE LOOP");
+                System.out.println(n);
+                System.out.println(m);
+            System.out.println("OUTSIDE LOOP");
+            System.out.println(n);
+            // System.out.println(m); => Error: m does not exist outside the loop
+} 
 
     }
 
@@ -1098,7 +1120,18 @@ public class App {
     }
 
     public static void Example47(){
-        
+        Collection<String> surnames = new ArrayList<String>();
+        surnames.add("Pappas");
+        surnames.add("Percy");
+        surnames.add("Brox");
+        System.out.println("These names start with \"P\"");
+        Iterator<String> iter = surnames.iterator();
+        while (iter.hasNext()) {
+            String surname = iter.next();
+            if (surname.substring(0, 1).equals("P")) {
+                System.out.println(surname);
+            }
+        }
     }
 
     public static void Example48(){
@@ -1156,11 +1189,49 @@ public class App {
     
 
     public static void Example50(){
-        
+      
+         String original_string, reverse_string = "";
+
+         
+
+         // Prompt the user to enter a string
+        System.out.println("Type a string to check if it is a palindrome or not:");
+        original_string = input.nextLine();
+
+        int Stringlength = original_string.length();
+
+        // Loop to reverse the string
+        for (int i = Stringlength - 1; i >= 0; i--) {
+            reverse_string = reverse_string + original_string.charAt(i);
+        }
+
+        // Checks if original string is equal to the reversed string
+        if (original_string.equals(reverse_string)) {
+            System.out.println("The string entered is a palindrome.");
+        } else {
+            System.out.println("The string entered is not a palindrome.");
+        }
     }
 
     public static void Example51(){
+        System.out.println("null");
         
+        System.out.println("Enter an integer");
+        
+        int number = input.nextInt();
+        input.nextLine();
+        System.out.println("The reverse of " + number + " is " + findReverse(number));
+    }
+
+    public static int findReverse(int number) {
+        int reverse = 0;
+        int palindrome = number;
+        while (palindrome != 0) {
+            int remainder = palindrome % 10;
+            reverse = (reverse * 10) + remainder;
+            palindrome /= 10;
+        }
+        return reverse;
     }
 
     public static void Example52(){
