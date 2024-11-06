@@ -1186,8 +1186,6 @@ public class App {
         System.out.println("Bob found " + x + " times");
     }
 
-    
-
     public static void Example50(){
       
          String original_string, reverse_string = "";
@@ -1251,7 +1249,7 @@ public class App {
     }
 
     public static void Example54(){
-        
+
     }
 
     public static void Example55(){
