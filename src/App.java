@@ -944,7 +944,7 @@ public class App {
             System.out.println("Enter a number to be encrypted (max 18 digits)");
             long num = input.nextInt();
             input.nextLine();
-            
+
             long[] digits = new long[("" + num).length()];
             
             // extract digits
@@ -977,8 +977,7 @@ public class App {
             
             System.out.println("Enter a number to be encrypted (max 18 digits)");
             long encrypted = input.nextInt();
-            input.nextLine();
-            
+             input.nextLine();
             long[] digits = new long[("" + encrypted).length()];
             
             // extract digits
@@ -1006,12 +1005,12 @@ public class App {
  
              System.out.println("Decrypted number is:");
              System.out.println(decrypted);
-        }
-    }
-
+            }
+        } 
+    
     public static void Example43(){
 
-        final double Pi = 3.1415926535;
+         final double Pi = 3.1415926535;
 
         // Initialize variables
         double ratio = 0, area;
@@ -1022,10 +1021,10 @@ public class App {
             System.out.println("Enter the radius of the circle. Enter 999 to exit: ");
             ratio = input.nextDouble();
 
-       
+            // Exit condition
             if (ratio == 999) {
                 System.out.println("See you!");
-                break; 
+                break;  // Exit the loop
             } else {
                 // Calculate the area of the circle
                 area = Pi * ratio * ratio;
@@ -1037,19 +1036,20 @@ public class App {
 
     public static void Example44(){
         int n = 0;
-            while (n < 2) {
-                System.out.println("OK");
-                n++;
-                int m = n + 1;
-                System.out.println("INSIDE LOOP");
-                System.out.println(n);
-                System.out.println(m);
-            System.out.println("OUTSIDE LOOP");
+        while (n < 2) {
+            System.out.println("OK");
+            n++;
+            int m = n + 1;
+            System.out.println("INSIDE LOOP");
             System.out.println(n);
-            // System.out.println(m); => Error: m does not exist outside the loop
-} 
+            System.out.println(m);
+        System.out.println("OUTSIDE LOOP");
+        System.out.println(n);
+        // System.out.println(m); => Error: m does not exist outside the loop
 
-    }
+      }
+
+   } 
 
     public static void Example45(){
        //Declares the integer Year
@@ -1134,7 +1134,7 @@ public class App {
         }
     }
 
-    public static void Example48(){
+    public static <Vehicle> void Example48(){
          // Create vehicles
         Vehicle vehicle1 = new Vehicle("red", "car", 2000);
         Vehicle vehicle2 = new Vehicle("green", "bus", 4000);
@@ -1169,14 +1169,13 @@ public class App {
         Collection<String[]> absences = new ArrayList<>();
         absences.add(monday);
         absences.add(tuesday);
-
         // Iterate over each array of absences
-        Iterator<String[]> iterator = absences.iterator();
-        while (iterator.hasNext()) {
-            String[] array1 = iterator.next();  // Get the next array of absences
+
+        for (String[] array1 : absences) {
+            // Get the next array of absences
             // Loop through the names in the current array
-            for (int n = 0; n < array1.length; n++) {
-                if (array1[n].equals("Bob")) {
+            for (String array11 : array1) {
+                if (array11.equals("Bob")) {
                     x++;  // Increment count if "Bob" is found
                 }
             }
@@ -1186,29 +1185,27 @@ public class App {
         System.out.println("Bob found " + x + " times");
     }
 
+    
+
     public static void Example50(){
-      
-         String original_string, reverse_string = "";
+        String original_string, reverse_string = "";
+        // Prompt the user to enter a string
+       System.out.println("Type a string to check if it is a palindrome or not:");
+       original_string = input.nextLine();
 
-         
+       int Stringlength = original_string.length();
 
-         // Prompt the user to enter a string
-        System.out.println("Type a string to check if it is a palindrome or not:");
-        original_string = input.nextLine();
+       // Loop to reverse the string
+       for (int i = Stringlength - 1; i >= 0; i--) {
+           reverse_string = reverse_string + original_string.charAt(i);
+       }
 
-        int Stringlength = original_string.length();
-
-        // Loop to reverse the string
-        for (int i = Stringlength - 1; i >= 0; i--) {
-            reverse_string = reverse_string + original_string.charAt(i);
-        }
-
-        // Checks if original string is equal to the reversed string
-        if (original_string.equals(reverse_string)) {
-            System.out.println("The string entered is a palindrome.");
-        } else {
-            System.out.println("The string entered is not a palindrome.");
-        }
+       // Checks if original string is equal to the reversed string
+       if (original_string.equals(reverse_string)) {
+           System.out.println("The string entered is a palindrome.");
+       } else {
+           System.out.println("The string entered is not a palindrome.");
+       }
     }
 
     public static void Example51(){
@@ -1249,7 +1246,7 @@ public class App {
     }
 
     public static void Example54(){
-
+        
     }
 
     public static void Example55(){
