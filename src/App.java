@@ -1125,9 +1125,7 @@ public class App {
         surnames.add("Percy");
         surnames.add("Brox");
         System.out.println("These names start with \"P\"");
-        Iterator<String> iter = surnames.iterator();
-        while (iter.hasNext()) {
-            String surname = iter.next();
+        for (String surname : surnames) {
             if (surname.substring(0, 1).equals("P")) {
                 System.out.println(surname);
             }
