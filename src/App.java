@@ -1134,7 +1134,7 @@ public class App {
         }
     }
 
-    public static <Vehicle> void Example48(){
+    public static void Example48(){
          // Create vehicles
         Vehicle vehicle1 = new Vehicle("red", "car", 2000);
         Vehicle vehicle2 = new Vehicle("green", "bus", 4000);
