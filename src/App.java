@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.locks.AbstractQueuedLongSynchronizer;
 
 public class App {
 
@@ -1252,8 +1253,31 @@ public class App {
     }
 
     public static void Example56(){
-        
+        String[] Names =  ("Al", "Bety", "Thalia", "Cerner", "Ray" ,"Hari", "Sofi");
+        int[] Ages = (18, 13, 18, 15, 16, 18, 11);
+        String[] Category =  ("A", "B", "C", "C" ,"B", "A", "C");
+
+        ArrayList<String> pass = new ArrayList<>();
+        ArrayList<String> fail = new ArrayList<>();
+        int x = 0; 
+
+        for(int i = 0; i<7; i++){
+            if(Ages[i] >= 15 && Category[i].equals("A")){
+                calcl(Names[i], pass);
+            }
+            else if (Ages[i] < 15 && Category[i].equals("C")){
+                calc2(Names[i], fail);
+            
+            }
+            else{
+                System.out.println("Decision for " + Names[i] + "Pending");
+            }
+        }
+            System.out.println("Decision for " + Names[i] + " Pending ");
+
     }
+
+    
 
     public static void Example57(){
         
