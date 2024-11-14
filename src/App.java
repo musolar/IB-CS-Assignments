@@ -1,5 +1,5 @@
+import java.lang.ref.Reference;
 import java.util.*;
-import java.util.concurrent.locks.AbstractQueuedLongSynchronizer;
 
 public class App {
 
@@ -298,7 +298,7 @@ public class App {
 
         Vehicle[] Vehicles = {Vehicle1, Vehicle2, Vehicle3};
         for (int I = 0; I <= 2; I++) {
-            if (Vehicles[I].Type == "bus") {
+            if ("bus".equals(Vehicles[I].Type)) {
                 System.out.println("bus found at array position " + I);
             }
         }
@@ -1121,7 +1121,7 @@ public class App {
     }
 
     public static void Example47(){
-        Collection<String> surnames = new ArrayList<String>();
+        Collection<String> surnames = new ArrayList<>();
         surnames.add("Pappas");
         surnames.add("Percy");
         surnames.add("Brox");
@@ -1245,17 +1245,124 @@ public class App {
     }
 
     public static void Example54(){
+      
+        String[] FIRE_STATIONS = {"ALPHA", "BETA", "THETA", "CENTER", "RAILWAY", "HARBOR", "SUBURB"};
+        int[] PERSONNEL = {2, 13, 23, 44, 23, 11, 43};
+        
+        // Initialize variables
+        List<String> FIRE_DUTY = new ArrayList<>();
+        String UNDERSTAFFED = "";
+        int MIN = Integer.MAX_VALUE;  // Start with a large number for comparison
+        String STATION_ON_DUTY = "";
+        
+        // Find the understaffed station
+        for (int i = 0; i < 7; i++) {
+            FIRE_DUTY.add(FIRE_STATIONS[i]);
+            if (PERSONNEL[i] < MIN) {
+                MIN = PERSONNEL[i];
+                UNDERSTAFFED = FIRE_STATIONS[i];
+            }
+        }
+
+        int I = 0;
+        boolean emergencyStop = false;
+
+        // Loop to handle fire station duty processing
+        while (I <= 52 && !emergencyStop) {
+            System.out.print("Enter device input (true/false): ");
+            String inputDevice = input.nextLine();
+
+            if (inputDevice.equals("true")) {
+                // Simulate getting the next station on duty
+                if (!FIRE_DUTY.isEmpty()) {
+                    STATION_ON_DUTY = FIRE_DUTY.remove(0);  // Simulate getNext() by removing first element
+                    if (STATION_ON_DUTY.equals(UNDERSTAFFED)) {
+                        System.out.println("This station is understaffed");
+                    }
+                    System.out.println(STATION_ON_DUTY);
+                } else {
+                    // If no stations left, reset the duty
+                    FIRE_DUTY.addAll(List.of(FIRE_STATIONS));  // Reset to original stations list
+                    STATION_ON_DUTY = FIRE_DUTY.remove(0);  // Get the first station
+                    if (STATION_ON_DUTY.equals(UNDERSTAFFED)) {
+                        System.out.println("This station is understaffed");
+                    }
+                    System.out.println(STATION_ON_DUTY);
+                }
+            } else if (inputDevice.equals("false")) {
+                emergencyStop = true;
+                System.out.println("Emergency stop of procedure");
+            }
+
+            I++;  // Increment the loop counter
+        }
         
     }
 
     public static void Example55(){
+         String[] FIRE_STATIONS = {"ALPHA", "BETA", "THETA", "CENTER", "RAILWAY", "HARBOR", "SUBURB"};
+        int[] PERSONNEL = {12, 13, 23, 44, 23, 11, 43};
+
+        // Initialize variables
+        List<String> FIRE_DUTY = new ArrayList<>();
+        String UNDERSTAFFED = "";
+        int MIN = PERSONNEL[0];  // Start with the first personnel count
+        String STATION_ON_DUTY = "";
+        String INPUT_DEVICE = "";
+        int I = 0;
         
-    }
+        // Simulate the function call to 'calculate' (Not defined in pseudocode but assumed to be a placeholder)
+        calculate();
+        
+                // Initialize the duty collection (FIRE_DUTY)
+                for (int i = 0; i < 7; i++) {
+                    FIRE_DUTY.add(FIRE_STATIONS[i]);
+                }
+        
+                // Find the understaffed station (the one with the least personnel)
+                for (int M = 0; M < 7; M++) {
+                    if (PERSONNEL[M] < MIN) {
+                        MIN = PERSONNEL[M];
+                        UNDERSTAFFED = FIRE_STATIONS[M];
+                    }
+                }
+                boolean emergencyStop = false;
+        
+                // Loop for processing fire station duties for 53 weeks
+                while (I <= 52 && !emergencyStop) {
+                    System.out.print("Enter device input (true/false): ");
+                    INPUT_DEVICE = input.nextLine();
+        
+                    if (INPUT_DEVICE.equals("true")) {
+                        // If there are stations left in the duty list
+                        if (!FIRE_DUTY.isEmpty()) {
+                            STATION_ON_DUTY = FIRE_DUTY.remove(0);  // Simulate getNext() by removing the first station
+                            if (STATION_ON_DUTY.equals(UNDERSTAFFED)) {
+                                System.out.println("This station has too few personnel!!!");
+                            }
+                            System.out.println(STATION_ON_DUTY);
+                        } else {
+                            // Reset duty list if no stations left
+                            FIRE_DUTY.addAll(List.of(FIRE_STATIONS));  // Reset to original stations list
+                            STATION_ON_DUTY = FIRE_DUTY.remove(0);  // Get the first station
+                            if (STATION_ON_DUTY.equals(UNDERSTAFFED)) {
+                                System.out.println("This station has too few personnel!!!");
+                            }
+                            System.out.println(STATION_ON_DUTY);
+                        }
+                    } else if (INPUT_DEVICE.equals("false")) {
+                        emergencyStop = true;
+                        System.out.println("Emergency stop of procedure");
+                    }
+        
+                    I++;  // Increment the loop counter
+                }
+            }
 
     public static void Example56(){
-        String[] Names =  ("Al", "Bety", "Thalia", "Cerner", "Ray" ,"Hari", "Sofi");
-        int[] Ages = (18, 13, 18, 15, 16, 18, 11);
-        String[] Category =  ("A", "B", "C", "C" ,"B", "A", "C");
+        String[] Names =  {"Al", "Bety", "Thalia", "Cerner", "Ray" ,"Hari", "Sofi"};
+        int[] Ages = {18, 13, 18, 15, 16, 18, 11};
+        String[] Category =  {"A", "B", "C", "C" ,"B", "A", "C"};
 
         ArrayList<String> pass = new ArrayList<>();
         ArrayList<String> fail = new ArrayList<>();
@@ -1274,10 +1381,19 @@ public class App {
             }
         }
             System.out.println("Decision for " + Names[i] + " Pending ");
-
+  
     }
 
-    
+    public static void calcl (String ME, ArrayList<String> a) {
+        a.add(ME);
+        System.out.println("Person" + a + "added to the Collection PASS");
+    }
+
+    public static void calc2 (String YOU, ArrayList<String> b) { 
+        b.add(YOU);
+        System.out.println("Person " + b + "Added to the collection FAIL");
+    }
+
 
     public static void Example57(){
         
@@ -1305,6 +1421,10 @@ public class App {
 
     public static void Example63(){
 
+    }
+
+    private static void calculate() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }
