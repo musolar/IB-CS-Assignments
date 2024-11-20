@@ -1,4 +1,3 @@
-import java.lang.ref.Reference;
 import java.util.*;
 
 public class App {
@@ -1357,7 +1356,7 @@ public class App {
         
                     I++;  // Increment the loop counter
                 }
-            }
+    }
 
     public static void Example56(){
         String[] Names =  {"Al", "Bety", "Thalia", "Cerner", "Ray" ,"Hari", "Sofi"};
@@ -1380,7 +1379,6 @@ public class App {
                 System.out.println("Decision for " + Names[i] + "Pending");
             }
         }
-            System.out.println("Decision for " + Names[i] + " Pending ");
   
     }
 
@@ -1420,7 +1418,7 @@ public class App {
  
          // Read the elements and calculate the sum
          for (int counter = 0; counter < elements.length; counter++) {
-             elements[counter] = console.nextInt();
+             elements[counter] = input.nextInt();
              sum += elements[counter];  // Accumulate sum
          }
          
@@ -1525,396 +1523,49 @@ public class App {
              System.out.print(elements[i] + " ");
          }
          System.out.println();  // New line after printing shifted array
-     }
+    }
 
 
     public static void Example61(){
-
-    static int SIZE = 3;  // Size of the matrix
-    static int[][] A = new int[SIZE][SIZE];  // Declare a 2D array
-
-    public App() {
+        new Example61(input);
     }
-
-    public App(<any> ) {
-        this.<error> = <error>;
-    }
-
-        
-        // Fill the matrix with user input
-        System.out.println("Enter the elements of the matrix (" + SIZE + "x" + SIZE + "):");
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                A[i][j] = input.nextInt();
-            }
-        }
-
-        // Menu options and loop to repeat until exit (choice 10)
-        int SELECT = 0;
-        while (SELECT != 10) {
-            System.out.println("\nOptions:");
-            System.out.println("1. Check if the matrix is a Binary matrix");
-            System.out.println("2. Check if the matrix is an Arrowhead matrix");
-            System.out.println("3. Check if the matrix is a Diagonal matrix");
-            System.out.println("4. Check if the matrix is an Identity matrix");
-            System.out.println("5. Check if the matrix is an Integer matrix");
-            System.out.println("6. Check if the matrix is a Nonnegative matrix");
-            System.out.println("7. Check if the matrix is a Permutation matrix");
-            System.out.println("8. Check if the matrix is a Symmetric matrix");
-            System.out.println("9. Press 10 to exit");
-
-            System.out.print("Please choose an operation: ");
-            int CHOICE = input.nextInt();
-
-            // Selection of desired operation
-            switch (CHOICE) {
-                case 1:
-                    Binary();
-                    break;
-                case 2:
-                    Arrowhead();
-                    break;
-                case 3:
-                    Diagonal();
-                    break;
-                case 4:
-                    Identity();
-                    break;
-                case 5:
-                    Integer();
-                    break;
-                case 6:
-                    Nonnegative();
-                    break;
-                case 7:
-                    Permutation();
-                    break;
-                case 8:
-                    Symmetric();
-                    break;
-                case 10:
-                    SELECT = 10;
-                    break;
-                default:
-                    System.out.println("Invalid choice, please try again.");
-            }
-        }
-     
-
-    // Method to check if matrix is Binary (0, 1) matrix
-    public static void Binary() {
-        System.out.println("Checking if the matrix is a Binary matrix (0, 1):");
-        boolean isBinary = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (A[i][j] != 0 && A[i][j] != 1) {
-                    isBinary = false;
-                    break;
-                }
-            }
-        }
-        if (isBinary) {
-            System.out.println("It is a Binary matrix.");
-        } else {
-            System.out.println("It is not a Binary matrix.");
-        }
-    }
-
-    // Method to check if matrix is Arrowhead
-    public static void Arrowhead() {
-        System.out.println("Checking if the matrix is an Arrowhead matrix:");
-        boolean isArrowhead = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (A[i][j] != 0 && (i != 0 && j != 0 && i != j)) {
-                    isArrowhead = false;
-                    break;
-                }
-            }
-        }
-        if (isArrowhead) {
-            System.out.println("It is an Arrowhead matrix.");
-        } else {
-            System.out.println("It is not an Arrowhead matrix.");
-        }
-    }
-
-    // Method to check if matrix is Diagonal
-    public static void Diagonal() {
-        System.out.println("Checking if the matrix is a Diagonal matrix:");
-        boolean isDiagonal = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (i != j && A[i][j] != 0) {
-                    isDiagonal = false;
-                    break;
-                }
-            }
-        }
-        if (isDiagonal) {
-            System.out.println("It is a Diagonal matrix.");
-        } else {
-            System.out.println("It is not a Diagonal matrix.");
-        }
-    }
-
-    // Method to check if matrix is Identity
-    public static void Identity() {
-        System.out.println("Checking if the matrix is an Identity matrix:");
-        boolean isIdentity = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (i == j && A[i][j] != 1 || i != j && A[i][j] != 0) {
-                    isIdentity = false;
-                    break;
-                }
-            }
-        }
-        if (isIdentity) {
-            System.out.println("It is an Identity matrix.");
-        } else {
-            System.out.println("It is not an Identity matrix.");
-        }
-    }
-
-    // Method to check if matrix is Integer
-    public static void Integer() {
-        System.out.println("Checking if the matrix is an Integer matrix:");
-        boolean isInteger = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (A[i][j] != (int) A[i][j]) {
-                    isInteger = false;
-                    break;
-                }
-            }
-        }
-        if (isInteger) {
-            System.out.println("It is an Integer matrix.");
-        } else {
-            System.out.println("It is not an Integer matrix.");
-        }
-    }
-
-    // Method to check if matrix is Nonnegative
-    public static void Nonnegative() {
-        System.out.println("Checking if the matrix is a Nonnegative matrix:");
-        boolean isNonnegative = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (A[i][j] < 0) {
-                    isNonnegative = false;
-                    break;
-                }
-            }
-        }
-        if (isNonnegative) {
-            System.out.println("It is a Nonnegative matrix.");
-        } else {
-            System.out.println("It is not a Nonnegative matrix.");
-        }
-    }
-
-    // Method to check if matrix is Permutation
-    public static void Permutation() {
-        System.out.println("Checking if the matrix is a Permutation matrix:");
-        boolean isPermutation = true;
-        for (int i = 0; i < SIZE; i++) {
-            int rowSum = 0;
-            int colSum = 0;
-            for (int j = 0; j < SIZE; j++) {
-                rowSum += A[i][j];
-                colSum += A[j][i];
-            }
-            if (rowSum != 1 || colSum != 1) {
-                isPermutation = false;
-                break;
-            }
-        }
-        if (isPermutation) {
-            System.out.println("It is a Permutation matrix.");
-        } else {
-            System.out.println("It is not a Permutation matrix.");
-        }
-    }
-
-    // Method to check if matrix is Symmetric
-    public static void Symmetric() {
-        System.out.println("Checking if the matrix is a Symmetric matrix:");
-        boolean isSymmetric = true;
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (A[i][j] != A[j][i]) {
-                    isSymmetric = false;
-                    break;
-                }
-            }
-        }
-        if (isSymmetric) {
-            System.out.println("It is a Symmetric matrix.");
-        } else {
-            System.out.println("It is not a Symmetric matrix.");
-        }
-
-}
 
 
     public static void Example62(){
-         // Initialize the 2D array with temperature data
-         int[][] Lake_Temp = {
-            {23, 22, 24, 24},
-            {22, 23, 25, 25},
-            {23, 22, 24, 23},
-            {20, 23, 25, 25},
-            {23, 22, 24, 24},
-            {24, 23, 25, 25},
-            {19, 21, 22, 22}
-        };
+        // Initialize the 2D array with temperature data
+        int[][] Lake_Temp = {
+           {23, 22, 24, 24},
+           {22, 23, 25, 25},
+           {23, 22, 24, 23},
+           {20, 23, 25, 25},
+           {23, 22, 24, 24},
+           {24, 23, 25, 25},
+           {19, 21, 22, 22}
+       };
 
-        printTwoDArray(Lake_Temp);
-        System.out.println("______________");
-        SumDate(Lake_Temp);
-        System.out.println("______________");
-        SumTime(Lake_Temp);
-        System.out.println("______________");
-        MaxDate(Lake_Temp);
-        System.out.println("______________");
-        MaxTime(Lake_Temp);
-        System.out.println("______________");
-        MinDate(Lake_Temp);
-        System.out.println("______________");
-        MinTime(Lake_Temp);
-        System.out.println("______________");
-        AvDate(Lake_Temp);
-        System.out.println("______________");
-        AvTime(Lake_Temp);
-        System.out.println("______________");
-        AvAll(Lake_Temp);
-    }
-
-    // Method to print the 2D array
-    public static void printTwoDArray(int[][] TDarray) {
-        for (int[] TDarray1 : TDarray) {
-            for (int time = 0; time < TDarray1.length; time++) {
-                  System.out.printf("%7d", TDarray1[time]);
-            }
-                  System.out.println();
-        }
+       LakeTemp.printTwoDArray(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.SumDate(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.SumTime(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.MaxDate(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.MaxTime(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.MinDate(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.MinTime(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.AvDate(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.AvTime(Lake_Temp);
+       System.out.println("______________");
+       LakeTemp.AvAll(Lake_Temp);
     }
 
-    // Method to calculate the sum of temperatures for each date
-    public static void SumDate(int[][] TDarray) {
-        for (int date = 0; date < TDarray.length; date++) {
-            int sum = 0;
-            for (int time = 0; time < TDarray[date].length; time++) {
-                sum += TDarray[date][time];
-            }
-            System.out.println("The sum of the temperatures for date " + (date + 1) + " = " + sum);
-        }
-    }
 
-    // Method to calculate the average temperature for each date
-    public static void AvDate(int[][] TDarray) {
-        for (int date = 0; date < TDarray.length; date++) {
-            int sum = 0;
-            for (int time = 0; time < TDarray[date].length; time++) {
-                sum += TDarray[date][time];
-            }
-            int average = sum / TDarray[date].length;
-            System.out.println("The average temperature for date " + (date + 1) + " = " + average);
-        }
-    }
-
-    // Method to calculate the sum of temperatures for each time period (across all dates)
-    public static void SumTime(int[][] TDarray) {
-        for (int time = 0; time < TDarray[0].length; time++) {
-            int sum = 0;
-            for (int[] TDarray1 : TDarray) {
-               sum += TDarray1[time];
-            }
-            System.out.println("The sum of the temperatures for time " + (time + 1) + " = " + sum);
-        }
-    }
-
-    // Method to calculate the average temperature for each time period (across all dates)
-    public static void AvTime(int[][] TDarray) {
-        for (int time = 0; time < TDarray[0].length; time++) {
-            int sum = 0;
-            for (int date = 0; date < TDarray.length; date++) {
-                sum += TDarray[date][time];
-            }
-            int average = sum / TDarray.length;
-            System.out.println("The average temperature for time " + (time + 1) + " = " + average);
-        }
-    }
-
-    // Method to find the maximum temperature for each date
-    public static void MaxDate(int[][] TDarray) {
-        for (int date = 0; date < TDarray.length; date++) {
-            int maximum = TDarray[date][0];
-            for (int time = 1; time < TDarray[date].length; time++) {
-                if (TDarray[date][time] > maximum) {
-                    maximum = TDarray[date][time];
-                }
-            }
-            System.out.println("The maximum temperature for date " + (date + 1) + " = " + maximum);
-        }
-    }
-
-    // Method to find the maximum temperature for each time period
-    public static void MaxTime(int[][] TDarray) {
-        for (int time = 0; time < TDarray[0].length; time++) {
-            int maximum = TDarray[0][time];
-            for (int date = 1; date < TDarray.length; date++) {
-                if (TDarray[date][time] > maximum) {
-                    maximum = TDarray[date][time];
-                }
-            }
-            System.out.println("The maximum temperature for time " + (time + 1) + " = " + maximum);
-        }
-    }
-
-    // Method to find the minimum temperature for each date
-    public static void MinDate(int[][] TDarray) {
-        for (int date = 0; date < TDarray.length; date++) {
-            int minimum = TDarray[date][0];
-            for (int time = 1; time < TDarray[date].length; time++) {
-                if (TDarray[date][time] < minimum) {
-                    minimum = TDarray[date][time];
-                }
-            }
-            System.out.println("The minimum temperature for date " + (date + 1) + " = " + minimum);
-        }
-    }
-
-    // Method to find the minimum temperature for each time period
-    public static void MinTime(int[][] TDarray) {
-        for (int time = 0; time < TDarray[0].length; time++) {
-            int minimum = TDarray[0][time];
-            for (int date = 1; date < TDarray.length; date++) {
-                if (TDarray[date][time] < minimum) {
-                    minimum = TDarray[date][time];
-                }
-            }
-            System.out.println("The minimum temperature for time " + (time + 1) + " = " + minimum);
-        }
-    }
-
-    // Method to calculate the overall average temperature for all dates and times
-    public static void AvAll(int[][] TDarray) {
-        int sum = 0;
-        int count = 0;
-        for (int date = 0; date < TDarray.length; date++) {
-            for (int time = 0; time < TDarray[date].length; time++) {
-                sum += TDarray[date][time];
-                count++;
-            }
-        }
-        int average = sum / count;
-        System.out.println("The overall average temperature is = " + average);
-    }
-}
-    }
+    
 
     public static void Example63(){
         // Initialize 2D array representing temperatures for different days and times
@@ -1925,27 +1576,8 @@ public class App {
         };
 
         // Call the method to calculate and display the overall average temperature
-        AvAll(Lake_Temp);
+        LakeTemp.AvAll(Lake_Temp);
     }
 
     // Method to calculate the overall average temperature
-    public static void AvAll(int[][] TDarray) {
-        int sum = 0;
-        int totalElements = 0;
-
-        // Iterate through each day (rows)
-        for (int[] TDarray1 : TDarray) {
-            // Iterate through each time (columns)
-            for (int time = 0; time < TDarray1.length; time++) {
-                sum += TDarray1[time]; // Add the temperature to the sum
-                totalElements++;  // Count the total number of elements
-            }
-        }
-
-        // Calculate the average temperature
-        int average = sum / totalElements;
-
-        // Print the overall average temperature
-        System.out.println("The overall average temperature is: " + average);
-    }
 }
